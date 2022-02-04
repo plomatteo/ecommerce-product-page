@@ -36,20 +36,20 @@ i {
 }
 
 /*PRODUCT IMG*/
-.main-img{
-border-radius: 5%;
+.main-carousel{
 width: 80%;
 }
-.thumbnail-img{
-    padding:2%;
-    width: 20%;
-    border-radius: 15%;
+
+.border-ra{
+    border-radius: 5%;
+    width: 100%;
 }
 
 /*ADD TO CART BUTTON AREA*/
 .addToCart{
     background-color: hsl(26, 100%, 55%);
     color: white;
+    width: 100%;
 }
 .price{
     display: inline;
@@ -59,6 +59,27 @@ width: 80%;
     font-size: 1.4rem;
     opacity: 0.5;
 }
+
+.checkoutline{
+    width: 100%;
+}
 .quantity{
-    width: 130px;
+    text-align: center;
+    width:100%;
+}
+
+/*SLIDESHOW*/
+.selected{
+    border: solid 2px rgb(42, 156, 255);
+    opacity: 0.7;
+}
+
+#cartCounter{
+    border: none;
+    text-align: center;
+    width: 25px;
+    background-color: crimson;
+    color: white;
+    font-weight: 700;
+    border-radius: 100%;
 }

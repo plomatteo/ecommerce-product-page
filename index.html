@@ -25,6 +25,7 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -43,41 +44,79 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
         </ul>
-        <div class="d-flex align-items-center justify-content-center ms-3">
-          <i class="fas fa-shopping-cart"></i>
-          <div id="profile-container">
-            <img id="profile-img" src="./images/matteoPolo.jpg" alt="">
-          </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <i class="fas fa-shopping-cart"></i><input id="cartCounter" placeholder="0"></input>
+        <div id="profile-container">
+          <img id="profile-img" src="./images/matteoPolo.jpg" alt="">
         </div>
       </div>
 
   </nav>
   <hr id="head-line">
   </div>
-  <div class="container">
+  <div class="container-md">
     <!-- START PRODUCT GALLERY-->
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-5 px-5">
         <div class="row">
-          <div class="col-sm-0 col-lg-2">
-          </div>
-          <div class="col-sm-12 col-lg-10 ">
-            <div class="row d-flex justify-content-center">
-              <img src="./images/image-product-1.jpg" alt="immage product 1" class="main-img">
+          <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
+            data-bs-interval="false">
+            <div class="carousel-inner">
+              <div id="1" data-thumbnail='thumbnail1' class="carousel-item active">
+                <img src="./images/image-product-1.jpg" class="d-block border-ra" alt="...">
+              </div>
+              <div id="2" data-thumbnail='thumbnail2' class="carousel-item">
+                <img src="./images/image-product-2.jpg" class=" d-block border-ra" alt="...">
+              </div>
+              <div id="3" data-thumbnail='thumbnail3' class="carousel-item">
+                <img src="./images/image-product-3.jpg" class=" d-block border-ra" alt="...">
+              </div>
+              <div id="4" data-thumbnail='thumbnail4' class="carousel-item">
+                <img src="./images/image-product-4.jpg" class=" d-block border-ra" alt="...">
+              </div>
             </div>
-            <div class="row d-flex justify-content-center">
-              <img src="./images/image-product-1-thumbnail.jpg" alt="" class="thumbnail-img">
-              <img src="./images/image-product-2-thumbnail.jpg" alt="" class="thumbnail-img">
-              <img src="./images/image-product-3-thumbnail.jpg" alt="" class="thumbnail-img">
-              <img src="./images/image-product-4-thumbnail.jpg" alt="" class="thumbnail-img">
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+              data-bs-slide="prev" onclick="findActive()">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+              data-bs-slide="next" onclick="findActive()">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
+
+        <div class="row my-4">
+          <div class="col">
+            <img id='thumbnail1' class="border-ra" src="./images/image-product-1-thumbnail.jpg"
+              onclick="currentSlide(1, 'thumbnail1')" alt="img1">
+          </div>
+          <div class="col">
+            <img id='thumbnail2' class="border-ra" src="./images/image-product-2-thumbnail.jpg"
+              onclick="currentSlide(2, 'thumbnail2')" alt="img2">
+          </div>
+          <div class="col">
+            <img id='thumbnail3' class="border-ra" src="./images/image-product-3-thumbnail.jpg"
+              onclick="currentSlide(3, 'thumbnail3')" alt="img3">
+          </div>
+          <div class="col">
+            <img id='thumbnail4' class="border-ra" src="./images/image-product-4-thumbnail.jpg"
+              onclick="currentSlide(4, 'thumbnail4')" alt="img-4">
+          </div>
+        </div>
+
       </div>
+
       <div class="col-lg-6">
-<!-- START PRODUCT DESCRIPTION-->
+        <!-- START PRODUCT DESCRIPTION-->
         <div class="row ">
           <div class="col-sm-12 col-lg-10 px-5 py-4">
+
             <h5 class="sneaker-text">SNEAKER COMPANY</h5>
             <h1 class="sneaker-heading">Fall Limited Edition Sneakers</h1>
             <p>These low-profile sneakers are your perfect casual wear companion. Featuring a
@@ -86,39 +125,71 @@
             <div class="discount">
               <h2 class="price">$125.00</h2>
               <button type="button" class="btn btn-outline-light btn-sm percent bg-warning mb-2">50%</button>
-              <h3 id="actu"class="actual-price">$250.00</h3>
+              <h3 id="actu" class="actual-price">$250.00</h3>
             </div>
-
-            <div class="checkout">
-              <button type="button" class="decrease-btn btn btn-light">-</button>
-              <input type="text" class="quantity btn" value="0" placeholder="0">
-              <button type="button" class="increase-btn btn btn-light my-4">+</button>
+            <div class="checkoutline my-3 d-flex">
+              <button id="remove" type="button" class="decrease-btn btn btn-light d-flex">-</button>
+              <input id="displayCounter" type="text" class="quantity" value="0" placeholder="0">
+              <button id="add" type="button" class="increase-btn btn btn-light">+</button>
             </div>
-            <button class="btn addToCart px-5 py-2" type="button" name="button"> <img id="cartLogo" class="add-cart" src="images/icon-cart.svg"
-                alt="">Add to Cart</button>
+            <div class="checkoutline">
+              <button id="addToCart" class="btn addToCart px-5 py-2" type="button" name="button"> <img id="cartLogo"
+                  class="add-cart" src="images/icon-cart.svg" alt="">Add to Cart</button>
+            </div>
           </div>
+
           <div class="col col-sm-0 col-lg-2">
           </div>
         </div>
       </div>
     </div>
-</div>
-
-<hr class="my-5">
-
-<footer class="my-5">
-  <div class="container">
-    <p class="text-center">Challenge by Frontend Mentor.
-    Coded by <a href="#">Matteo Polo</a>.
-  </p> 
   </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-      crossorigin="anonymous"></script>
+  </div>
+
+  <hr class="my-5">
+
+  <footer class="my-5">
+    <div class="container">
+      <p class="text-center">Challenge by Frontend Mentor.
+        Coded by <a href="#">Matteo Polo</a>.
+      </p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
+
+  <!-- ADD TO CART SCRIPT-->
+<script src="./counter.js"></script>
+<script src="./addToCart.js"></script>
+
+  <!-- SLIDESHOW SCRIPT-->
+  <script>
+    function currentSlide(id, thumbnail) {
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(i).classList.remove('active');
+      }
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`thumbnail` + i).classList.remove('selected');
+      }
+      document.getElementById(id).classList.add('active');
+      document.getElementById(thumbnail).classList.add('selected');
+    }
+
+    function findActive() {
+      setTimeout(() => {
+        var idThumbnail = document.querySelector("div.active");
+        let currentThumbnail = idThumbnail.dataset.thumbnail;
+        for (let i = 1; i <= 4; i++) {
+          document.getElementById(`thumbnail` + i).classList.remove('selected');
+        }
+        document.getElementById(currentThumbnail).classList.add('selected');
+      }, 700)
+    }
+  </script>
 </body>
 
 </html>
